@@ -7590,7 +7590,8 @@ CONFIG_VT6656=m
 # CONFIG_FB_SM750 is not set
 CONFIG_STAGING_MEDIA=y
 # CONFIG_VIDEO_MAX96712 is not set
-CONFIG_VIDEO_MESON_VDEC=m
+CONFIG_VIDEO_MESON_VDEC=y
+#改了这里，原本是m，为了能让oes硬解h265视频
 
 #
 # StarFive media platform drivers
