@@ -1,0 +1,5 @@
+# v4l2-request 补丁版 FFmpeg 
+apt_install() {
+  apt-get update
+  apt-get install -y jellyfin-ffmpeg   # 直接装二进制
+}
