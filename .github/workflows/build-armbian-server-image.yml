@@ -3,6 +3,35 @@
 # Copyright (C) 2021 https://github.com/ophub/amlogic-s9xxx-armbian
 #==========================================================================
 
+
+      # 1. 在 runner 里现场生成脚本
+      - name: Create customize-image.sh
+        run: |
+          cat > customize-image.sh <<'EOF'
+          #!/bin/bash
+          apt-get update -qq
+          apt-get install -y jellyfin-ffmpeg
+          EOF
+          chmod +x customize-image.sh
+
+      # 2. 正常调用 ophub 的 Rebuild
+      - name: Rebuild Armbian
+        uses: ophub/amlogic-s9xxx-armbian@main
+        if: ${{ steps.clean.outputs.status }} == 'success' && !cancelled()
+        with:
+          build_target: armbian
+          armbian_path: build/output/images/*.img.gz
+          armbian_board: ${{ inputs.armbian_board }}
+          armbian_kernel: ${{ inputs.armbian_kernel }}
+          # … 其他参数 …
+          armbian_customize: ${{ github.workspace }}/customize-image.sh
+
+
+
+
+
+
+
 name: Build Armbian server image
 
 on:
