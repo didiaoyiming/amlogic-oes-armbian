@@ -355,8 +355,7 @@ jobs:
           kernel_usage: ${{ inputs.kernel_usage }}
           armbian_fstype: ${{ inputs.armbian_fstype }}
           builder_name: ${{ inputs.builder_name }}
-  # 新增 ↓↓↓这是v4l2-request 补丁版 FFmpeg 
-          armbian_customize: ${{ github.workspace }}/buding/v4l2-request-FFmpeg
+
 
       - name: Upload Rebuild image to Release
         uses: ncipollo/release-action@main
