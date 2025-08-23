@@ -205,7 +205,7 @@ on:
       kernel_repo:
         description: "Set the kernel repository."
         required: false
-        default: "didiaoyiming/kernel"
+        default: "ophub/kernel"
         type: choice
         options:
           - ophub/kernel
